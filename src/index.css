@@ -1,22 +1,91 @@
 :root {
-  --bg: #f5f6f8;
+  --bg: #eef0fb;
+  --bg-grad-a: #f6f6fd;
+  --bg-grad-b: #e9ebfa;
   --surface: #ffffff;
-  --border: #e1e4e9;
-  --ink: #171a21;
-  --ink-soft: #5b6270;
-  --ink-faint: #92979f;
-  --accent: #146b70;
-  --accent-soft: #e6f1f0;
-  --accent-strong: #0e4d51;
-  --user-bubble: #171a21;
-  --danger: #b3452f;
-  --danger-soft: #fbeee9;
+  --surface-alt: #f8f8fd;
+  --border: #e5e4f5;
+  --ink: #1b1a2b;
+  --ink-soft: #66657f;
+  --ink-faint: #9b99b0;
+
+  --accent: #6d5bf6;
+  --accent-2: #9a7ffb;
+  --accent-strong: #5642e0;
+  --accent-soft: #efeaff;
+
+  --user-bubble-a: #6d5bf6;
+  --user-bubble-b: #9a5bf6;
+
+  --danger: #e0533f;
+  --danger-soft: #fdeceb;
+
+  --shadow-sm: 0 1px 2px rgba(38, 27, 90, 0.06);
+  --shadow-md: 0 8px 24px rgba(38, 27, 90, 0.10);
+  --shadow-lg: 0 16px 40px rgba(38, 27, 90, 0.16);
 
   --font-display: "Space Grotesk", "Inter", sans-serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   --font-mono: "IBM Plex Mono", "SFMono-Regular", monospace;
 
-  --radius: 12px;
+  --radius: 18px;
+  --radius-sm: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131220;
+    --bg-grad-a: #17162a;
+    --bg-grad-b: #1b1930;
+    --surface: #1c1a2e;
+    --surface-alt: #201e34;
+    --border: #322f4d;
+    --ink: #f0eff8;
+    --ink-soft: #a9a7c4;
+    --ink-faint: #726f92;
+
+    --accent: #8f7cff;
+    --accent-2: #b491ff;
+    --accent-strong: #c3aeff;
+    --accent-soft: #2c2850;
+
+    --user-bubble-a: #7a63ff;
+    --user-bubble-b: #a06bff;
+
+    --danger: #ff7f6e;
+    --danger-soft: #3a2230;
+
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 10px 26px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 18px 44px rgba(0, 0, 0, 0.6);
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #131220;
+  --bg-grad-a: #17162a;
+  --bg-grad-b: #1b1930;
+  --surface: #1c1a2e;
+  --surface-alt: #201e34;
+  --border: #322f4d;
+  --ink: #f0eff8;
+  --ink-soft: #a9a7c4;
+  --ink-faint: #726f92;
+
+  --accent: #8f7cff;
+  --accent-2: #b491ff;
+  --accent-strong: #c3aeff;
+  --accent-soft: #2c2850;
+
+  --user-bubble-a: #7a63ff;
+  --user-bubble-b: #a06bff;
+
+  --danger: #ff7f6e;
+  --danger-soft: #3a2230;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 10px 26px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 18px 44px rgba(0, 0, 0, 0.6);
 }
 
 * {
@@ -31,6 +100,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-body);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 #root {
@@ -44,6 +114,24 @@ button {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-faint);
 }
 
 @media (prefers-reduced-motion: reduce) {
